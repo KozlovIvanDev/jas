@@ -20,7 +20,7 @@
 
 $Host      = "localhost";
 $User      = "root";
-$Password  = "root";
+$Password  = "";
 $DBName    = "userlistdb"; // Database name
 $TableName = "monday"; // Name of table to display
 

@@ -1,7 +1,9 @@
 <?php
 	session_start();
-	include("../includes/config.php");
 ?>
+
+<?php require_once("../includes/connection.php"); ?>
+
 <?php
 	
 	if(isset($_SESSION["session_username"])){
@@ -16,8 +18,10 @@
 			$username = htmlspecialchars($_POST['username']);
 			$password = htmlspecialchars($_POST['password']);
 
-			$query = mysqli_query($mysqli, "SELECT * FROM usertbl WHERE username='".$username."' AND password='".$password."'");
-			$query2 = mysqli_query($mysqli, "SELECT * FROM teachers WHERE username='".$username."' AND password='".$password."'");
+			$n1 = mysqli_connect("localhost","root","","userlistdb");
+
+			$query = mysqli_query($n1, "SELECT * FROM usertbl WHERE username='".$username."' AND password='".$password."'");
+			$query2 = mysqli_query($n1, "SELECT * FROM teachers WHERE username='".$username."' AND password='".$password."'");
 			
 			$numrows = mysqli_num_rows($query);
 			$numrows2 = mysqli_num_rows($query2);
@@ -33,11 +37,14 @@
 				}
 				if( $username == $dbusername && $password == $dbpassword){
 					// старое место расположения
-					$_SESSION['session_username']=$username;	 
+					//  session_start();
+					$_SESSION['session_username']=$username;
+					$_SESSION['session_full_name']=$username;	 
 					/* Перенаправление браузера */
 					header("Location: students_intropage.php");
 				}else if($username == $dbusername2 && $password == $dbpassword2){
 					$_SESSION['session_username'] = $username;	 
+					$_SESSION['session_full_name']=$username;
 					/* Перенаправление браузера */
 					header("Location: teachers_intropage.php");
 				}
@@ -82,7 +89,42 @@
 		<link rel="stylesheet" href="../css/form.css">
         <link rel="stylesheet" href="../css/layout.css">
 
+		<script>
+			// function setCookie(cname,cvalue,exdays) {
+			// 	var d = new Date();
+			// 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			// 	var expires = "expires=" + d.toGMTString();
+			// 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			// }
 
+			// function getCookie(cname) {
+			// 	var name = cname + "=";
+			// 	var decodedCookie = decodeURIComponent(document.cookie);
+			// 	var ca = decodedCookie.split(';');
+			// 	for(var i = 0; i < ca.length; i++) {
+			// 		var c = ca[i];
+			// 		while (c.charAt(0) == ' ') {
+			// 			c = c.substring(1);
+			// 		}
+			// 		if (c.indexOf(name) == 0) {
+			// 			return c.substring(name.length, c.length);
+			// 		}
+			// 	}
+			// return "";
+			// }
+
+			// function checkCookie() {
+			// 	var user=getCookie("username");
+			// if (user != "") {
+			// 	alert("Welcome again " + user);
+			// } else {
+			// 	user = prompt("Please enter your name:","");
+			// 	if (user != "" && user != null) {
+			// 		setCookie("username", user, 30);
+			// 	}
+			// }
+			// }
+		</script>
     </head>
     <body>	
 		<div class="loader">

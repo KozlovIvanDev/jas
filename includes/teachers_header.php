@@ -6,7 +6,7 @@
     header("location:login.php");
   else:
 ?>
-<?php include("../includes/config.php"); ?>
+<?php include("../includes/connection.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">

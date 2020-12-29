@@ -345,6 +345,14 @@ svg:hover {
 /* END OF DROPWOWN MENU
 ===================*/
 
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+/* END OF DROPWOWN MENU
+===================*/
+
 /* BANNERS
 ===================*/
 .first_banner_container {

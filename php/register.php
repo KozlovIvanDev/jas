@@ -1,4 +1,4 @@
-<?php require_once("../includes/config.php"); ?>
+<?php require_once("../includes/connection.php"); ?>
 
 <?php
 	
@@ -10,13 +10,14 @@
 			$email=htmlspecialchars($_POST['email']);
 			$username=htmlspecialchars($_POST['username']);
 			$password=htmlspecialchars($_POST['password']);
-			$query=mysqli_query($msqli,"SELE CT * FROM usertbl WHERE username='".$username."'");
+			$n1=mysqli_connect("localhost","root","","userlistdb");
+			$query=mysqli_query($n1,"SELECT * FROM usertbl WHERE username='".$username."'");
 			$numrows=mysqli_num_rows($query);
 
 			if($numrows==0){
 
 				$sql="INSERT INTO usertbl(full_name, email, username, password) VALUES ('$full_name','$email', '$username', '$password')";
-				$result=mysqli_query($msqli,$sql);
+				$result=mysqli_query($n1,$sql);
 
 				if($result){
 					$message = "Account Successfully Created";

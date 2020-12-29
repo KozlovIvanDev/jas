@@ -1,13 +1,15 @@
 <?php
+
   session_start();
+
   if(!isset($_SESSION["session_username"])):
     header("location:login.php");
   else:
 ?>
-<?php include("../includes/config.php"); ?>
+<?php include("../includes/connection.php"); ?>
 
 <!DOCTYPE html>
-<html lang="ua">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>CheckON | Система для навчального процесу</title>
@@ -51,7 +53,7 @@
                                 <div class="dropdown_menu_section  t-1">
                             
                                     <div class="dropdown_title_container">
-                                        <img src="../images/notebook.svg"class="dropdown_title_icon">
+                                        <img src="../images/notebook.svg" class="dropdown_title_icon">
                                         <a class="dropdown_title" href="../php/students_intropage.php">Щоденник</a>
                                     </div>
                                         
@@ -59,7 +61,7 @@
                                 <div class="dropdown_menu_section  t-1">
                             
                                     <div class="dropdown_title_container">
-                                        <img src="../images/user.svg"class="dropdown_title_icon">
+                                        <img src="../images/user.svg" class="dropdown_title_icon">
                                         <a class="dropdown_title" href="../php/students_user.php">Профіль</a>
                                     </div>
                                         
@@ -67,7 +69,7 @@
                                 <div class="dropdown_menu_section  t-1">
                             
                                     <div class="dropdown_title_container">
-                                        <img src="../images/settings_intro.svg"class="dropdown_title_icon">
+                                        <img src="../images/settings_intro.svg" class="dropdown_title_icon">
                                         <a class="dropdown_title" href="../php/students_settings.php">Налаштування</a>
                                     </div>
                                         

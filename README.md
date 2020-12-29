@@ -41,7 +41,7 @@ Looking for help? Check out the
 ## Current Project Team Members
 
 <!--lint disable prohibited-strings-->
-* [VanichkaKozlov](https://github.com/KozlovIvanDev) -
+* [VanichkaKozlov](https://github.com/VanichkaKozlov) -
 **Ivan Kozlov** &lt;ikozlov15.ik@gmail.com&gt; (he/him)
 
-[Project Website]: https://kozlovivandev.github.io/jas/
+[Project Website]: https://website/

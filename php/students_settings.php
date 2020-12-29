@@ -1,4 +1,4 @@
-<?php include("../includes/config.php"); ?>
+<?php include("../includes/connection.php"); ?>
 <?php include("../includes/students_header.php"); ?>
 
 <!DOCTYPE html>
